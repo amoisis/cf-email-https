@@ -1,0 +1,27 @@
+{
+  "name": "cf-email-https",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.13.0",
+    "vitest": "^4.1.0",
+    "wrangler": "^3.91.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "GATEWAY_URL": {
+        "description": "The destination URL (e.g., your home server gateway API endpoint) where parsed emails are forwarded."
+      },
+      "CF_CLIENT_ID": {
+        "description": "Your Cloudflare Access Service Token Client ID (Optional)."
+      },
+      "CF_CLIENT_SECRET": {
+        "description": "Your Cloudflare Access Service Token Client Secret (Optional)."
+      }
+    }
+  }
+}
