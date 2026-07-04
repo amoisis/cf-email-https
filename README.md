@@ -10,6 +10,8 @@ A one-click template to intercept incoming emails via Cloudflare Email Routing a
 2. Update `wrangler.json` with your own values, or set them after deployment:
    * `GATEWAY_URL` — the HTTPS endpoint of your backend webhook server.
    * `CF_CLIENT_ID` — the Client ID of a Cloudflare Access Service Token (optional, but recommended).
+
+   > **Important:** `GATEWAY_URL` must be set before the worker can forward emails. If you set values in the Cloudflare dashboard after deploying, remember that values in `wrangler.json` will overwrite them on the next GitHub Actions deploy.
 3. Set the sensitive service token secret:
    ```bash
    wrangler secret put CF_CLIENT_SECRET
@@ -23,11 +25,14 @@ A one-click template to intercept incoming emails via Cloudflare Email Routing a
    npm install
    npm run deploy
    ```
-5. Route emails to the worker:
-   * Go to **Compute** -> **Email Service** -> **Email Routing**.
+5. Route emails to the worker (this step is required and cannot be done via `wrangler deploy`):
+   * In the Cloudflare dashboard, go to **Compute** -> **Email Service** -> **Email Routing**.
    * Choose your domain and click **Routing Rules**.
    * Enable the **Catch-all rule** (or create a specific custom address).
-   * Set the Action to **Send to a Worker** and select your worker name.
+   * Set the **Action** to **Send to a Worker** and select your worker name.
+   * Save the rule.
+
+   Without this routing rule, the worker will deploy but will never receive emails.
 
 ## Environment Variables & Secrets
 

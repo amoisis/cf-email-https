@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cf-email-https",
   "main": "src/index.js",
-  "compatibility_date": "2026-07-01",
+  "compatibility_date": "2026-03-17",
   "vars": {
     "GATEWAY_URL": "",
     "CF_CLIENT_ID": ""
