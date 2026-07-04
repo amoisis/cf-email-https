@@ -1,0 +1,4 @@
+# Cloudflare Access Service Token Client Secret (optional).
+# Copy this file to .dev.vars and fill in your secret for local development.
+# For production, set the secret with: wrangler secret put CF_CLIENT_SECRET
+CF_CLIENT_SECRET=

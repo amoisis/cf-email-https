@@ -23,7 +23,7 @@ A one-click template to intercept incoming emails via Cloudflare Email Routing a
 4. Deploy:
    ```bash
    npm install
-   npm run deploy
+   npx wrangler deploy
    ```
 5. Route emails to the worker (this step is required and cannot be done via `wrangler deploy`):
    * In the Cloudflare dashboard, go to **Compute** -> **Email Service** -> **Email Routing**.
